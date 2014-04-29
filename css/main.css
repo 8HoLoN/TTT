@@ -1,0 +1,61 @@
+body{
+	text-align: center;
+	background-color:black;
+	-khtml-user-select: none;
+	-webkit-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	-o-user-select: none;
+	user-select: none;
+}
+img{
+	width:100px;
+	height:100px;
+}
+div.container{
+	/*position : absolute ;*/
+	position : relative ;
+	/*border:blue 1px solid;*/
+	height:300px;
+	width:300px;
+	color:white;
+	text-align:center;
+	background-color:black;
+	margin: auto;
+}
+div.cell{
+	/*position : relative ;*/
+	position : absolute ;
+	border:black 0px solid;
+	height:100px;
+	width:100px;
+	cursor: pointer;
+	/*cursor:url(metalhand.cur)*/
+	top:0; left:0; right:0; bottom:0;
+}
+.middleH{
+	padding-left: 00px;
+	margin-left: 100px;
+	top:0; left:0; right:0; bottom:0;
+}
+.middleV{
+	padding-top: 00px;
+	margin-top: 100px;
+	top:0; left:0; right:0; bottom:0;
+}
+.bottom{
+	padding-top: 00px;
+	margin-top: 200px;
+	top:0; left:0; right:0; bottom:0;
+}
+.right{
+	padding-left: 00px;
+	margin-left: 200px;
+	top:0; left:0; right:0; bottom:0;
+}
+.button{
+	position : relative;
+	text-align: center;
+	margin-top: 00px;
+	background-color:black;
+}
