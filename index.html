@@ -33,7 +33,44 @@
 		<div>
 		<script type="text/javascript" src="js/ttt.js"></script>
 		<script type="text/javascript">
-
+			
+			function clone(obj) {
+					if (null == obj || "object" != typeof obj) return obj;
+					var copy = obj.constructor();
+					for (var attr in obj) {
+							if (obj.hasOwnProperty(attr)) copy[attr] = clone(obj[attr]);
+					}
+					return copy;
+			}
+			
+			window.addEventListener('load',function(){
+				TTT.reset();
+			
+				document.getElementById('checkbox').addEventListener('click',function(e){TTT.setIA();},false);
+				document.getElementById('button').addEventListener('click',function(e){TTT.reset();},false);
+			
+				var matrixCells = document.querySelectorAll(".cell");
+				for (var len = matrixCells.length, i = 0; i != len; i++) {
+					matrixCells[i].addEventListener('click', (function(l_i){
+						return (function(e){
+							TTT.process({'cellId':this.firstChild.id});
+						});
+					}.call(matrixCells[i],i)), false);
+					matrixCells[i].addEventListener('touchstart', (function(l_i){//mobile device
+						return (function(event){
+							var e = event || window.event;
+							e.preventDefault && e.preventDefault();
+							e.stopPropagation && e.stopPropagation();
+							e.cancelBubble = true;
+							e.returnValue = false;
+			
+							TTT.process({'cellId':this.firstChild.id});
+							return false;
+						});
+					}.call(matrixCells[i],i)), false);
+				}
+			
+			},false);
 		</script>
 	</body>
 </html>
